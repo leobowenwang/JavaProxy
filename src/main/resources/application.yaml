@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: proxyServer
+  server:
+    port: 3333
+  http:
+    services:
+      remoteHost:
+        urls: 'http://localhost:8080'

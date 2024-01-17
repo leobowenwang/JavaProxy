@@ -1,10 +1,29 @@
 plugins {
     id 'java'
+    id("io.micronaut.application") version "4.2.1"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
-group = 'java'
-version = '1.0-SNAPSHOT'
+micronaut {
+    runtime 'netty'
+}
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("io.micronaut.serde:micronaut-serde-jsonp")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut:micronaut-http-server")
+    implementation("io.projectreactor:reactor-core")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    runtimeOnly("org.yaml:snakeyaml")
+}
+application {
+    mainClass.set('micronaut.Application')
 }

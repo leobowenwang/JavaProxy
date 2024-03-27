@@ -5,7 +5,8 @@ plugins {
 }
 
 micronaut {
-    runtime 'netty'
+    version("4.3.6")
+    runtime("netty")
 }
 
 repositories {

@@ -33,7 +33,7 @@ public class Main {
 
             // Use a virtual thread for forwarding data
             Thread.startVirtualThread(() -> forwardData(clientIn, serverOut));
-
+            // TODO: study User Level Thread, Kernel Level Thread, Light Weight Processes* (mapping between kernel & user level threads)
             forwardData(serverIn, clientOut);
 
             clientSocket.close();
